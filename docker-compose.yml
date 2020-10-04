@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  app:
+    image: rust
+    working_dir: /app/guessing_game
+    environment:
+      - USER=$USER
+    volumes:
+      - .:/app:delegated
