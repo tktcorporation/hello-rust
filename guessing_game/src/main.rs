@@ -31,7 +31,7 @@ fn main() {
 
         println!("You guessed: {}", guess);
 
-        if secret_number.check(guess) {
+        if secret_number.check(guess).is_equal() {
             break;
         }
     }
