@@ -1,3 +1,4 @@
+use super::comparison_result::ComparisonResult;
 use std::cmp::Ordering;
 
 pub struct SecretNumber {
@@ -13,19 +14,19 @@ impl SecretNumber {
         self.value
     }
 
-    pub fn check(&self, guess: i32) -> bool {
+    pub fn check(&self, guess: i32) -> ComparisonResult {
         match guess.cmp(&self.value) {
             Ordering::Less => {
                 println!("Too small!"); //小さすぎ！
-                false
+                ComparisonResult::Less
             }
             Ordering::Greater => {
                 println!("Too big!"); //大きすぎ！
-                false
+                ComparisonResult::Over
             }
             Ordering::Equal => {
                 println!("You win!"); //やったね！
-                true
+                ComparisonResult::Equal
             }
         }
     }
